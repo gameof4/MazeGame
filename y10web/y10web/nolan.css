@@ -1,0 +1,41 @@
+body{
+    font-size: 20px;
+    font-family: 'Playfair Display';
+    color:#09359c;
+    margin-right:50px;
+    margin-left:50px;
+    background-color: aliceblue;
+    border: 0.2px solid;
+    border-color: black;
+    padding: 30px;
+}
+
+h1{
+    font-size: 30px;
+    font-family: 'Playfair Display';
+    color:#09359c;
+    text-align: center;
+}
+
+.footnote{
+    font-size:10px;
+    color:#09359c;
+    text-align: left;
+}
+.info{
+    text-align: justify;
+    color:#09359c;
+}
+
+.graph{
+    text-align: center;
+}
+
+a{
+    color:#0a6cff;
+    text-decoration: none;
+}
+
+a:hover{
+    color:red;
+}
