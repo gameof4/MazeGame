@@ -1,0 +1,384 @@
+
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+
+    <title>MouseMaze</title> 
+      <style>
+
+body {
+  font-size: 20px;
+    font-family: 'Playfair Display';
+     color:#09359c;
+  overflow: hidden;
+background-color: aliceblue;
+
+}
+ul.area {
+  margin: 2em auto;
+  padding: 0;
+  position: relative;
+  width: 1000px;
+  height: 200px;
+  overflow: hidden;
+}
+li {
+  background: grey;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 0.6em;
+  width: 20px;
+  height: 200px;
+}
+.error,
+.exito {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.error {
+  background: #ff0000;
+}
+
+.error:hover {
+  display: block;
+}
+li:hover ~ .error {
+  display: block;
+}
+.exito {
+  background: #adcbcf;
+}
+
+.exito:hover {
+  display: block;
+}
+.exito img {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  margin-left: -32px;
+  z-index: 10;
+}
+h1 {
+   font-size: 30px;
+    font-family: 'Playfair Display';
+    color:#09359c;
+    text-align: center;
+}
+.inferior,
+.superior {
+  background: grey;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+}
+.inferior {
+  bottom: 0;
+  left: 0;
+}
+.superior {
+  top: 0;
+  left: 0;
+}
+
+input[type="checkbox"] {
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 100%;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 90px;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+}
+input[type="checkbox"]:checked {
+  background: #ff0000;
+}
+input#dos:after,
+input#tres:after,
+input#cuatro:after {
+  color: #fff;
+  font-size: 0.8em;
+  position: absolute;
+  line-height: 20px;
+  padding-left: 7px;
+}
+input#dos:after {
+  content: '1';
+}
+input#tres:after {
+  content: '2';
+}
+input#cuatro:after {
+  content: '3';
+}
+
+.level2,
+.level3,
+.level4 {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+li:nth-child(1) {
+  -webkit-animation: escala 2s infinite;
+          animation: escala 2s infinite;
+}
+li:nth-child(26) {
+  -webkit-animation: escala 1.8s infinite;
+          animation: escala 1.8s infinite;
+}
+
+li:nth-child(2) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+li:nth-child(3) {
+  -webkit-animation: menos 1s infinite;
+          animation: menos 1s infinite;
+}
+li:nth-child(4) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+li:nth-child(5) {
+  -webkit-animation: menos 1s infinite;
+          animation: menos 1s infinite;
+}
+li:nth-child(6) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+input#dos:checked ~ .level2 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+li:nth-child(8) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+li:nth-child(9) {
+  -webkit-animation: menos 0.5s infinite;
+          animation: menos 0.5s infinite;
+}
+li:nth-child(10) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+li:nth-child(11) {
+  -webkit-animation: menos 0.5s infinite;
+          animation: menos 0.5s infinite;
+}
+li:nth-child(12) {
+  -webkit-animation: mas 1s infinite;
+          animation: mas 1s infinite;
+}
+input#tres:checked ~ .level3 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+li:nth-child(13) {
+  -webkit-animation: mas 0.3s infinite;
+          animation: mas 0.3s infinite;
+}
+li:nth-child(14) {
+  -webkit-animation: mas 0.2s infinite;
+          animation: mas 0.2s infinite;
+}
+li:nth-child(15) {
+  -webkit-animation: mas 0.3s infinite;
+          animation: mas 0.3s infinite;
+}
+li:nth-child(16) {
+  -webkit-animation: menos 0.2s infinite;
+          animation: menos 0.2s infinite;
+}
+li:nth-child(17) {
+  -webkit-animation: mas 0.3s infinite;
+          animation: mas 0.3s infinite;
+}
+li:nth-child(18) {
+  -webkit-animation: mas 0.2s infinite;
+          animation: mas 0.2s infinite;
+}
+input#cuatro:checked ~ .level4 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+li:nth-child(19) {
+  -webkit-animation: mas 0.1s infinite;
+          animation: mas 0.1s infinite;
+}
+li:nth-child(20) {
+  -webkit-animation: menos 0.2s infinite;
+          animation: menos 0.2s infinite;
+}
+li:nth-child(21) {
+  -webkit-animation: mas 0.1s infinite;
+          animation: mas 0.1s infinite;
+}
+li:nth-child(22) {
+  -webkit-animation: menos 0.2s infinite;
+          animation: menos 0.2s infinite;
+}
+li:nth-child(23) {
+  -webkit-animation: mas 0.1s infinite;
+          animation: mas 0.1s infinite;
+}
+li:nth-child(24) {
+  background: rgba(255, 0, 0, 0.5);
+}
+li:nth-child(24):hover ~ .exito {
+  display: block;
+}
+
+@-webkit-keyframes mas {
+  0% {
+    -webkit-transform: translateY(0px) translateZ(0);
+            transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateY(100px) translateZ(0);
+            transform: translateY(100px) translateZ(0);
+  }
+}
+@keyframes mas {
+  0% {
+    -webkit-transform: translateY(0px) translateZ(0);
+            transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateY(100px) translateZ(0);
+            transform: translateY(100px) translateZ(0);
+  }
+}
+@-webkit-keyframes menos {
+  0% {
+    -webkit-transform: translateY(0px) translateZ(0);
+            transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateY(-100px) translateZ(0);
+            transform: translateY(-100px) translateZ(0);
+  }
+}
+@keyframes menos {
+  0% {
+    -webkit-transform: translateY(0px) translateZ(0);
+            transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    -webkit-transform: translateY(-100px) translateZ(0);
+            transform: translateY(-100px) translateZ(0);
+  }
+}
+@-webkit-keyframes escala {
+  0% {
+    height: 10px;
+  }
+  50% {
+    height: 40px;
+  }
+}
+@keyframes escala {
+  0% {
+    height: 10px;
+  }
+  50% {
+    height: 40px;
+  }
+}
+
+.intro {
+  font-family: Monospace;
+  text-align: center;
+}
+.intro p {
+  font-size: 0.65em;
+}
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+
+  <div class="intro">
+	<h1>MouseMaze</h1>
+	<p>Get your cursor from the left to the right without hiting the bars.</p>
+<br>
+</div>
+
+<ul class="area">
+	<li class="superior"></li>
+	<!--------------------------------------------INICIO LEVEL 1-->
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<!--------------------------------------------LEVEL 2-->
+	<input id="dos" type="checkbox">
+	<li class="level2"></li>
+	<li class="level2"></li>
+	<li class="level2"></li>
+	<li class="level2"></li>
+	<li class="level2"></li>
+	<!--------------------------------------------LEVEL 3-->
+		<input id="tres" type="checkbox">
+	<li class="level3"></li>
+	<li class="level3"></li>
+	<li class="level3"></li>
+	<li class="level3"></li>
+	<li class="level3"></li>
+	<!--------------------------------------------LEVEL 4-->
+		<input id="cuatro" type="checkbox">
+	<li class="level4"></li>
+	<li class="level4"></li>
+	<li class="level4"></li>
+	<li class="level4"></li>
+	<li class="level4"></li>
+	<li class="level4"></li>
+	
+	<li class="inferior"></li>
+	<li class="error">
+		<h1>FAIL!!!</h1>
+	</li>
+	<li class="exito">
+		<h1>CONGRATULATION!!!</h1>
+	</li>
+</ul>
+
+
+</body>
+
+</html>
+ 
